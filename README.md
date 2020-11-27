@@ -68,12 +68,8 @@ Two scripts inside the "scout_bringup/scripts" folder are provided for easy setu
 1. Install dependent ROS packages
 
     ```
-    $ sudo apt install ros-melodic-teleop-twist-keyboard
-    $ sudo apt-get install ros-melodic-joint-state-publisher-gui
-    $ sudo apt install ros-melodic-ros-controllers
+    $ rosdep install --from-paths ~/catkin_ws/src --ignore-src
     ```
-
-    Change ros-melodic-* in the command to ros-kinetic-* if you're using ROS Kinetic.
 
 2. Clone the packages into your catkin workspace and compile
 
@@ -81,25 +77,9 @@ Two scripts inside the "scout_bringup/scripts" folder are provided for easy setu
 
     ```
     $ cd ~/catkin_ws/src
-    $ git clone https://github.com/agilexrobotics/scout_ros.git
+    $ git clone https://github.com/PARC-Robotics/scout_ros.git
     $ cd ..
     $ catkin_make
-    ```
-
-3. Setup Webots simulation    
-
-* Install Webots R2020a-rev1 (download from https://cyberbotics.com/ )
-
-* Install Webots ROS package
-
-    ```
-    $ sudo apt install ros-melodic-webots-ros
-    ```
-
-* Set WEBOTS_HOME variable, add the following line to your "~/.bashrc"
-
-    ```
-    export WEBOTS_HOME=/usr/local/webots
     ```
 
 4. Launch ROS nodes
@@ -114,12 +94,6 @@ Two scripts inside the "scout_bringup/scripts" folder are provided for easy setu
         
     ```
     $ roslaunch scout_bringup scout_minimal_uart.launch
-    ```
-
-* Start the Webots-based simulation (Scout V1)
-
-    ```
-    $ roslaunch scout_bringup scout_base_webots_sim.launch
     ```
 
 * Start the Gazebo-based simulation (Scout V2)
